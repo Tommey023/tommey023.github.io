@@ -1,0 +1,112 @@
+/* 📐 Basis: DM Sans */
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: #222;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+  position: relative; /* voor canvas positioning */
+}
+
+/* Container helper */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navbar styling */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #888;
+  font-weight: 500;
+  transition: color .2s;
+}
+.nav-links a:hover {
+  color: #333;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 4rem 0;
+}
+.hero-text {
+  flex: 1;
+}
+.hero-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  font-weight: 400;
+}
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Kleuren-cirkels */
+.colors {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+  position: relative; /* boven canvas */
+  z-index: 10;
+}
+.color-circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform .2s, border-color .2s;
+}
+.color-circle:hover {
+  transform: scale(1.1);
+}
+.color-circle.active {
+  border-color: #333;
+}
+
+/* Canvas styling */
+#drawCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* onder je UI (navbar, hero, kleuren) */
+  pointer-events: all;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Google Fonts: DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <title>Tekenles Haarlem</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Tekenles Haarlem</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#over-mij">Over mij</a></li>
+          <li><a href="#mijn-werk">Mijn werk</a></li>
+          <li><a href="#tekenles">Tekenles</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero container">
+    <div class="hero-text">
+      <h2>Ik ben Ireen en ik geef tekenles in Haarlem</h2>
+      <p class="subtitle">
+        Ontdek verschillende technieken, leer de basis principes van tekenen en ontwikkel je eigen stijl.
+      </p>
+    </div>
+    <div class="hero-image">
+      <img src="images/doodle.png" alt="Doodle placeholder">
+    </div>
+  </section>
+
+  <!-- Color placeholders -->
+  <section class="colors container">
+    <div class="color-circle" data-color="#ff6b6b"></div>
+    <div class="color-circle" data-color="#6bc9a3"></div>
+    <div class="color-circle" data-color="#6bb0ff"></div>
+    <div class="color-circle" data-color="#000000"></div>
+  </section>
+
+  <!-- Fullscreen teken-canvas -->
+  <canvas id="drawCanvas"></canvas>
+
+  <script>
+    // ---- Setup canvas ----
+    const canvas = document.getElementById('drawCanvas');
+    const ctx = canvas.getContext('2d');
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // ---- Tekenen ----
+    let drawing = false;
+    let currentColor = '#ff6b6b';  // startkleur
+
+    canvas.addEventListener('mousedown', e => {
+      drawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.clientX, e.clientY);
+    });
+    canvas.addEventListener('mousemove', e => {
+      if (!drawing) return;
+      ctx.lineTo(e.clientX, e.clientY);
+      ctx.strokeStyle = currentColor;
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    });
+    ['mouseup','mouseout'].forEach(ev =>
+      canvas.addEventListener(ev, () => drawing = false)
+    );
+
+    // ---- Kleuren kiezen ----
+    document.querySelectorAll('.color-circle').forEach(circle => {
+      const col = circle.getAttribute('data-color');
+      circle.style.background = col;
+      circle.addEventListener('click', () => {
+        currentColor = col;
+        // visueel aangeven welke actief is
+        document.querySelectorAll('.color-circle').forEach(c=>c.classList.remove('active'));
+        circle.classList.add('active');
+      });
+    });
+
+    // zet eerste bolletje als actief
+    document.querySelector('.color-circle').classList.add('active');
+  </script>
+</body>
+</html>
