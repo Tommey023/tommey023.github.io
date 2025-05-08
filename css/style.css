@@ -5,7 +5,7 @@ body {
   line-height: 1.4;
   margin: 0;
   padding: 0;
-  position: relative; /* voor canvas positioning */
+  position: relative;
 }
 
 /* Container helper */
@@ -84,7 +84,7 @@ body {
   justify-content: center;
   gap: 1rem;
   padding: 2rem 0;
-  position: relative; /* boven canvas */
+  position: relative;
   z-index: 10;
 }
 .color-circle {
@@ -107,6 +107,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; /* onder je UI (navbar, hero, kleuren) */
-  pointer-events: all;
+  z-index: 1;
+  /* standaard uit: laat muis-events door naar je menu */
+  pointer-events: none;
 }

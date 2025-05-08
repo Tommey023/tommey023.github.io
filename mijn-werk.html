@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts: DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Mijn werk — Tekenles Haarlem</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Specifieke stijlen voor de Mijn Werk-pagina */
+    .work-page h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 3rem 0 1rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto 4rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Overlay (lightbox) */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+    .overlay.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    .overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+
+    /* Link styling on logo */
+    .navbar .logo a {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">
+        <a href="index.html">Tekenles Haarlem</a>
+      </h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="over-mij.html">Over mij</a></li>
+          <li><a href="mijn-werk.html">Mijn werk</a></li>
+          <li><a href="tekenles.html">Tekenles</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container work-page">
+    <h2>Mijn werk</h2>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="images/tekeningWebsiteIreen1.jpeg" alt="Werk 1">
+      </div>
+      <div class="gallery-item">
+        <img src="images/tekeningWebsiteIreen2.jpeg" alt="Werk 2">
+      </div>
+      <div class="gallery-item">
+        <img src="images/tekeningWebsiteIreen3.jpeg" alt="Werk 3">
+      </div>
+      <div class="gallery-item">
+        <img src="images/tekeningWebsiteIreen4.jpeg" alt="Werk 4">
+      </div>
+      <div class="gallery-item">
+        <img src="images/tekeningWebsiteIreen5.jpeg" alt="Werk 5">
+      </div>
+      <div class="gallery-item">
+        <img src="images/tekeningWebsiteIreen6.jpeg" alt="Werk 6">
+      </div>
+      <div class="gallery-item">
+        <img src="images/tekeningWebsiteIreen7.jpeg" alt="Werk 7">
+      </div>
+      <div class="gallery-item">
+        <img src="images/tekeningWebsiteIreen8.jpeg" alt="Werk 8">
+      </div>
+      <div class="gallery-item">
+        <img src="images/tekeningWebsiteIreen9.jpeg" alt="Werk 9">
+      </div>
+    </div>
+  </main>
+
+  <!-- Overlay voor fullscreen weergave -->
+  <div id="overlay" class="overlay">
+    <img id="overlay-image" src="" alt="Grote weergave">
+  </div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    const overlayImage = document.getElementById('overlay-image');
+
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        overlayImage.src = img.src;
+        overlay.classList.add('show');
+      });
+    });
+
+    overlay.addEventListener('click', () => {
+      overlay.classList.remove('show');
+    });
+  </script>
+</body>
+</html>
