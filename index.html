@@ -1,138 +1,58 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Google Fonts: DM Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <title>Tekenles Haarlem</title>
-  <link rel="stylesheet" href="css/style.css">
-
-  <style>
-    /* voorkom selectie en klik-interactie op de achtergrond-afbeelding */
-    .hero-image img {
-      user-select: none;
-      pointer-events: none;
-      -webkit-user-drag: none;
-      -ms-user-select: none;
-      -moz-user-select: none;
-      -webkit-user-select: none;
-    }
-    /* kleuren, icoon en bolletjes netjes naast elkaar uitlijnen en 30px naar beneden schuiven */
-    .colors {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 30px;
-    }
-    .colors .icon {
-      font-size: 1.5rem;
-      user-select: none;
-      line-height: 1;
-    }
-    /* zorg dat 'tekenles' altijd groen onderstreept is */
-    .highlight {
-      display: inline-block;
-      border-bottom: 4px solid #6bc9a3;
-      padding-bottom: 0.1em;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ireen Illustraties</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="container">
-      <h1 class="logo">Tekenles Haarlem</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="over-mij.html">Over mij</a></li>
-          <li><a href="mijn-werk.html">Mijn werk</a></li>
-          <li><a href="tekenles.html">Tekenles</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <!-- 1. Menubar -->
+  <nav>
+    <ul class="menu">
+      <li><a href="verhaal.html">Mijn verhaal</a></li>
+      <li><a href="werk.html">Mijn werk</a></li>
+      <li><a href="lessen.html">Lessen</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Hero Section -->
-  <section class="hero container">
-    <div class="hero-text">
-      <h2>Ik ben Ireen en ik geef <span class="highlight">tekenles</span> in Haarlem</h2>
-      <p class="subtitle">
-        Ontdek verschillende technieken, leer de basis principes van tekenen en ontwikkel je eigen stijl.
-      </p>
-      <div class="colors">
-        <span class="icon">✏️</span>
-        <div class="color-circle" data-color="#ff6b6b"></div>
-        <div class="color-circle" data-color="#6bc9a3"></div>
-        <div class="color-circle" data-color="#6bb0ff"></div>
-        <div class="color-circle" data-color="#000000"></div>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="images/doodle.png" alt="Doodle placeholder" draggable="false">
-    </div>
+  <!-- 2. Logo -->
+  <section class="logo-section">
+    <img src="ireenillustratiestext.png" alt="Ireen Illustraties logo" class="logo" />
   </section>
 
-  <!-- Fullscreen teken-canvas -->
-  <canvas id="drawCanvas"></canvas>
+  <!-- 3. Korte alinea -->
+  <section class="intro">
+    <p>
+      Ik ben Ireen en ik illustreer kinderboeken.<br>
+      Bij ‘Mijn werk’ kun je vinden welke verschillende soorten illustraties<br>
+      ik tot nu toe gemaakt heb.<br>
+      Hoe ik me tot illustratrice ontwikkeld heb is te zien en te lezen bij ‘Mijn verhaal’.<br>
+      Je kunt me inhuren voor het illustreren van jouw kinderboek en voor andere<br>
+      illustratie opdrachten. Ook kan ik teken-en illustratie lessen komen geven op jouw basisschool.
+    </p>
+  </section>
 
-  <script>
-    // ---- Setup canvas ----
-    const canvas = document.getElementById('drawCanvas');
-    const ctx = canvas.getContext('2d');
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
+  <!-- 4. Twee knoppen -->
+  <section class="cta-buttons">
+    <a href="#mijn-verhaal" class="btn">Ireen</a>
+    <a href="#mijn-werk"   class="btn">Illustraties</a>
+  </section>
 
-    // Canvas staat standaard uit
-    canvas.style.pointerEvents = 'none';
+  <!-- 5. Full-width afbeelding -->
+  <section class="hero-image">
+    <img src="IreenIllustratiesLandingPage.png" alt="Illustratie volledige breedte" class="responsive-image">
+  </section>
 
-    // ---- Tekenen ----
-    let drawing = false;
-    let drawingEnabled = false;
-    let currentColor = null;
-
-    canvas.addEventListener('mousedown', e => {
-      if (!drawingEnabled) return;
-      drawing = true;
-      ctx.beginPath();
-      ctx.moveTo(e.clientX, e.clientY);
-    });
-    canvas.addEventListener('mousemove', e => {
-      if (!drawing || !drawingEnabled) return;
-      ctx.lineTo(e.clientX, e.clientY);
-      ctx.strokeStyle = currentColor;
-      ctx.lineWidth = 3;
-      ctx.lineCap = 'round';
-      ctx.stroke();
-    });
-    ['mouseup','mouseout'].forEach(ev =>
-      canvas.addEventListener(ev, () => drawing = false)
-    );
-
-    // ---- Kleuren kiezen / togglen ----
-    document.querySelectorAll('.color-circle').forEach(circle => {
-      const col = circle.getAttribute('data-color');
-      circle.style.background = col;
-      circle.addEventListener('click', () => {
-        if (circle.classList.contains('active')) {
-          circle.classList.remove('active');
-          drawingEnabled = false;
-          canvas.style.pointerEvents = 'none';
-        } else {
-          document.querySelectorAll('.color-circle')
-            .forEach(c => c.classList.remove('active'));
-          circle.classList.add('active');
-          currentColor = col;
-          drawingEnabled = true;
-          canvas.style.pointerEvents = 'all';
-        }
-      });
-    });
-  </script>
+  <!-- 6. Footer -->
+  <footer>
+    <p><strong>Contact</strong></p>
+    <p>
+      <span class="icon-envelope">&#x2709;</span>
+      <a href="mailto:irene.vanveen1@gmail.com">irene.vanveen1@gmail.com</a>
+    </p>
+  </footer>
 </body>
 </html>

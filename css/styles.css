@@ -1,0 +1,131 @@
+/*  Algemene reset en font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  background: #fff;
+  color: #000;
+  line-height: 1.5;
+}
+
+/* 1. Menubar */
+nav {
+  padding: 0.5rem 0; /* minder ruimte boven/onder menu */
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  /* geen gap meer; we gebruiken vaste li-breedtes voor stabiele positionering */
+}
+.menu li {
+  width: 12ch;            /* reserveer breedte zodat items niet verspringen */
+  text-align: center;
+}
+.menu a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 400;       /* regular */
+  display: inline-block;
+  width: 100%;            /* vult de li-breedte */
+  transition: font-weight 0.2s;
+}
+.menu a:hover {
+  font-weight: 700;       /* bold op hover, zit binnen dezelfde li-breedte */
+}
+
+/* 2. Logo */
+.logo-section {
+  text-align: center;
+  margin: 1rem 0;         /* minder ruimte tussen menu en logo */
+}
+.logo {
+  width: 400px;           /* twee keer zo klein (voorheen 800px) */
+  max-width: 90%;         /* past nog netjes in op kleinere schermen */
+  height: auto;
+}
+
+/* 3. Intro tekst */
+.intro {
+  text-align: center;
+  padding: 0 1rem;
+  margin: 0.5rem auto 2rem; /* minder ruimte boven de alinea tov logo */
+}
+.intro p {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 4. CTA knoppen */
+.cta-buttons {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 999px;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn:hover {
+  background: #222;
+  transform: translateY(-2px);
+}
+
+/* 5. Full-width afbeelding */
+.hero-image {
+  margin-bottom: 2rem;
+}
+.responsive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 6. Footer */
+footer {
+  background: #fff;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+footer p {
+  margin: 0.25rem 0;
+}
+footer a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* envelop-icoon stijlen — update */
+.icon-envelope {
+  font-size: 1.5em;        /* vergroot het icoon */
+  line-height: 1;          /* zodat het mooi in de tekst valt */
+  vertical-align: top;  /* verticaal centreren */
+  margin-right: 0.5ch;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  .menu li {
+    width: auto;         /* op mobiel geen vaste breedte */
+    margin: 0 0.75rem;
+  }
+  .logo {
+    width: 100%;
+  }
+  .intro p {
+    font-size: 0.9rem;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
