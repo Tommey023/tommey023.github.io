@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mijn verhaal - Ireen Illustraties</title>
+  <!-- Google Fonts: Gloock & Instrument Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* Container voor tekst en afbeeldingen */
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: left;
+    }
+    /* Pagina-titel */
+    h1 {
+      font-family: 'Gloock', serif;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 2rem;
+    }
+    /* Ondertitel */
+    .subtitle {
+      font-family: 'Instrument Sans', sans-serif;
+      text-align: center;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    /* Secties met tekst + galerij */
+    .section {
+      margin-bottom: 3rem;
+    }
+    /* Eén afbeelding */
+    .gallery-1 img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 1rem;
+    }
+    /* Twee afbeeldingen */
+    .gallery-2 {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gallery-2 img {
+      flex: 1;
+      height: 300px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hergebruik van navigatie -->
+  <nav>
+    <ul class="menu">
+      <li><a href="verhaal.html">Mijn verhaal</a></li>
+      <li><a href="werk.html">Mijn werk</a></li>
+      <li><a href="lessen.html">Lessen</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Titel + Ondertitel -->
+  <h1>Mijn verhaal</h1>
+  <p class="subtitle">Van kladblok tot prentenboek</p>
+
+  <!-- Sectie 1: tekst + 1 afbeelding -->
+  <div class="container section">
+    <p>
+      Als kind tekende ik al graag. Mijn favoriete cadeautjes waren een schetsboek en kleurpotloden.<br>
+      Met een kladblokje was ik ook al heel tevreden. Vaak tekende ik stipfiguren na. Deze Dopey heb ik zelfs gefiguurzaagd.
+    </p>
+    <div class="gallery-1">
+      <img src="verhaal1.jpg" alt="Kindertekening Dopey">
+    </div>
+  </div>
+
+  <!-- Sectie 2: tekst + 2 afbeeldingen -->
+  <div class="container section">
+    <p>
+      Als student op de PABO koos ik tekenen als verdiepingsvak. Ik heb mooie herinneringen aan de dagen in het atelier van de tekendocent.
+      Ik leerde portretten en stillevens uitwerken met houtskool en olieverf.
+    </p>
+    <div class="gallery-2">
+      <img src="verhaal2.jpg" alt="Atelier houtskoolportret">
+      <img src="verhaal3.png" alt="Olieverf stilleven">
+    </div>
+  </div>
+
+</body>
+</html>
