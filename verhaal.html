@@ -8,53 +8,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"/>
   <style>
-    /* Container voor tekst en afbeeldingen */
-    .container {
-      max-width: 700px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      text-align: left;
-    }
-    /* Pagina-titel */
-    h1 {
-      font-family: 'Gloock', serif;
-      text-align: center;
-      font-size: 2.5rem;
-      margin-top: 2rem;
-    }
-    /* Ondertitel */
-    .subtitle {
-      font-family: 'Instrument Sans', sans-serif;
-      text-align: center;
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-    }
-    /* Secties met tekst + galerij */
-    .section {
-      margin-bottom: 3rem;
-    }
-    /* Eén afbeelding */
-    .gallery-1 img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .container { max-width: 700px; margin: 2rem auto; padding: 0 1rem; text-align: left; }
+    h1 { font-family: 'Gloock', serif; text-align: center; font-size: 2.5rem; margin-top: 2rem; }
+    .subtitle { font-family: 'Instrument Sans', sans-serif; text-align: center; font-size: 1.25rem; margin-bottom: 2rem; }
+    .section { margin-bottom: 3rem; }
+
+    /* Specifieke styling voor de eerste afbeelding */
+    .intro-gallery {
+      display: flex;
+      justify-content: center; /* gecentreerde afbeelding */
       margin-top: 1rem;
     }
-    /* Twee afbeeldingen */
-    .gallery-2 {
+    .intro-gallery img { max-height: 200px; width: auto; height: auto; }
+
+    /* Galerie wrappers vullen container */
+    .gallery-1,
+    .gallery-2,
+    .gallery-3 {
       display: flex;
       gap: 1rem;
       margin-top: 1rem;
+      justify-content: center;
+      width: 100%;
     }
-    .gallery-2 img {
-      flex: 1;
-      height: 300px;
-      object-fit: cover;
-    }
+    .gallery-1 img { width: 100%; height: auto; }
+    .gallery-2 img,
+    .gallery-3 img { flex: 1; height: 300px; object-fit: cover; }
   </style>
 </head>
 <body>
-  <!-- Hergebruik van navigatie -->
   <nav>
     <ul class="menu">
       <li><a href="verhaal.html">Mijn verhaal</a></li>
@@ -64,32 +46,121 @@
     </ul>
   </nav>
 
-  <!-- Titel + Ondertitel -->
   <h1>Mijn verhaal</h1>
   <p class="subtitle">Van kladblok tot prentenboek</p>
 
-  <!-- Sectie 1: tekst + 1 afbeelding -->
+  <!-- Sectie 1: tekst + afbeelding onder tekst -->
   <div class="container section">
-    <p>
-      Als kind tekende ik al graag. Mijn favoriete cadeautjes waren een schetsboek en kleurpotloden.<br>
-      Met een kladblokje was ik ook al heel tevreden. Vaak tekende ik stipfiguren na. Deze Dopey heb ik zelfs gefiguurzaagd.
-    </p>
-    <div class="gallery-1">
+    <p>Als kind tekende ik al graag. Mijn favoriete cadeautjes waren een schetsboek en kleurpotloden. Met een kladblokje was ik ook al heel tevreden. Vaak tekende ik stipfiguren na. Deze Dopey heb ik zelfs gefiguurzaagd.</p>
+    <div class="intro-gallery">
       <img src="verhaal1.jpg" alt="Kindertekening Dopey">
     </div>
   </div>
 
-  <!-- Sectie 2: tekst + 2 afbeeldingen -->
+  <!-- Sectie 2 -->
   <div class="container section">
-    <p>
-      Als student op de PABO koos ik tekenen als verdiepingsvak. Ik heb mooie herinneringen aan de dagen in het atelier van de tekendocent.
-      Ik leerde portretten en stillevens uitwerken met houtskool en olieverf.
-    </p>
+    <p>Als student op de PABO koos ik tekenen als verdiepingsvak. Ik heb mooie herinneringen aan de dagen in het atelier van de tekendocent. Ik leerde portretten en stillevens uitwerken met houtskool en olieverf.</p>
     <div class="gallery-2">
       <img src="verhaal2.jpg" alt="Atelier houtskoolportret">
       <img src="verhaal3.png" alt="Olieverf stilleven">
     </div>
   </div>
+
+  <!-- Sectie 3 -->
+  <div class="container section">
+    <p>Door studie, werk en later het gezin, raakte het tekenen op de achtergrond. Wel gaf ik met veel plezier tekenlessen aan de kinderen in mijn klas. Op een dag besloot ik mijn oude hobby weer op te pakken met een online tekencursus ‘Illustreren’. Het was heerlijk om weer met tekenen bezig te zijn. Uitdagende opdrachten tot een goed einde brengen: het gaf me veel voldoening. De meeste opdrachten bestonden uit het natekenen van voorwerpen, personen en natuur, maar verder in de cursus kwam ook het tekenen vanuit de eigen fantasie om de hoek kijken.</p>
+    <!-- Drie afbeeldingen op één rij -->
+    <div class="gallery-3">
+      <img src="verhaal4.jpg" alt="Tekening 1">
+      <img src="verhaal5.jpg" alt="Tekening 2">
+      <img src="verhaal6.jpg" alt="Tekening 3">
+    </div>
+    <!-- Twee afbeeldingen eronder, vullen even brede rij -->
+    <div class="gallery-2">
+      <img src="verhaal7.jpg" alt="Tekening 4">
+      <img src="verhaal8.jpg" alt="Tekening 5">
+    </div>
+  </div>
+
+  <!-- Sectie 4 -->
+  <div class="container section">
+    <p>Toen ik de cursus had afgerond, wilde ik mezelf opdrachten gaan geven. Dat deed ik door een verhaal te schrijven en dit te illustreren. Zo was ik verzekerd van een aantal nieuwe opdrachten. Het werd ‘Bo Big en de baas van het bos’. Voor de personages stonden sprookjesfiguren model. Met inkt, kleurpotlood en een zwarte fineliner ging ik aan de slag om het verhaal door middel van 25 illustraties tot leven te brengen.</p>
+    <div class="gallery-3">
+      <img src="verhaal9.jpg" alt="Bo Big illustratie 1">
+      <img src="verhaal10.jpg" alt="Bo Big illustratie 2">
+      <img src="verhaal11.jpg" alt="Bo Big illustratie 3">
+    </div>
+  </div>
+
+  <!-- Sectie 5 -->
+  <div class="container section">
+    <p>Door dit werk te delen met een collega, die schrijver is van kinderboeken en prentenboeken, kreeg ik van hem het (nog niet uitgegeven) prentenboekverhaal ‘Het laatste koekje’ om te illustreren. Ook bij dit verhaal maakte ik gebruik van inkt, kleurpotlood en fineliner. Ik leerde nu om te denken in spreadsheets en om rekening te houden met de plaats van de tekst. En het allerbelangrijkste: het incasseren van enige kritiek, hoewel mijn collega/schrijver voornamelijk enthousiast was. Best lastig voor mij: ik tekende immers voor mijn plezier en wilde het liefst alleen positieve feedback. Inmiddels heb ik geleerd dat mijn werk alleen maar beter wordt van een kritische blik van een andere persoon.</p>
+    <div class="gallery-2">
+      <img src="verhaal12.jpg" alt="Laatste koekje 1">
+      <img src="verhaal13.jpg" alt="Laatste koekje 2">
+    </div>
+    <div class="gallery-2">
+      <img src="verhaal14.jpg" alt="Laatste koekje 3">
+      <img src="verhaal15.jpg" alt="Laatste koekje 4">
+    </div>
+  </div>
+
+  <!-- Sectie 6 -->
+  <div class="container section">
+    <p>Er volgden nog twee prentenboekverhalen die ik mocht illustreren. Het eerste verhaal was ‘Kom jij bij mij eten?’ Ik wilde een ander materiaal uitproberen en ging aan de slag met een collage-techniek in combinatie met acrylverf. Ook verwerkte ik in sommige illustraties natuurproducten, zoals koffieprut en bloemen. Een enorme klus, maar erg leuk om te doen.</p>
+    <div class="gallery-2">
+      <img src="verhaal16.jpg" alt="Collage 1">
+      <img src="verhaal17.jpg" alt="Collage 2">
+    </div>
+    <div class="gallery-2">
+      <img src="verhaal18.png" alt="Collage 3">
+      <img src="verhaal19.png" alt="Collage 4">
+    </div>
+  </div>
+
+  <!-- Sectie 7 -->
+  <div class="container section">
+    <p>Workshops<br>Om mijn kennis en vaardigheden uit te breiden deed ik o.a. een cursus van vijf dagen bij een professionele illustratrice. Bij haar leerde ik vooral het opzetten van een spreadsheet en wat de verdeling van het vlak voor de levendigheid van je illustratie doet. Voor mijn uiteindelijke werk verzon ik twee hoofdpersoontjes en een verhaal, dat ik nog steeds eens verder moet uitwerken.</p>
+    <div class="gallery-1">
+      <div style="background:#ccc;height:300px;display:flex;align-items:center;justify-content:center;">Placeholder afbeelding</div>
+    </div>
+  </div>
+
+  <!-- Sectie 8 -->
+  <div class="container section">
+    <p>Ook deed ik een basiscursus portrettekenen bij DARA (Dutch Atelier of Realist Art). Het urenlang nauwkeurig natekenen van een oor of oog is een prettige, bijna meditatieve, bezigheid. Toch bleek het niet datgene te zijn waar ik mijn tijd aan wil besteden. Veel liever gebruik ik mijn eigen fantasie voor verhalen en illustraties. Ik leerde van dit ‘zijpaadje’ wel kritisch te kijken naar mijn eigen werk en te blijven schaven tot het goed is. Als uitstapje voor mijn verjaardag deden we met het gezin een workshop ‘muurschilderen’. Voor de gezelligheid en om eens te ervaren hoe het is om een muurschildering te maken. Best lastig nog om te werken op een verticaal vlak, in plaats van op een horizontaal vlak. Wel heel leuk om hier in de toekomst nog iets mee te doen. Toen besloot ik het verhaal ‘Wolkenkneder en de Wind’ uit te gaan werken met inkt en krijt. Het was even puzzelen hoe ik dit verhaal over de wolken vorm zou geven. Maar daardoor juist interessant.</p>
+    <div class="gallery-1">
+      <div style="background:#ccc;height:300px;display:flex;align-items:center;justify-content:center;">Placeholder afbeelding</div>
+    </div>
+  </div>
+
+<!-- Sectie 9: tekst + 4 afbeeldingen -->
+<div class="container section">
+  <p>
+    Het viel niet mee om op grote vellen de lucht te maken. Het ging nogal eens mis. Ook kreeg de schrijver halverwege de klus bedenkingen over het schaduwverhaaltje dat ik had bedacht om de illustraties interessanter te maken. <br>
+    Ik liep er tegenaan dat analoog werk moeilijk te veranderen is. Daarom ben ik me gaan verdiepen in het digitaal tekenen. <br>
+    Toen ik dit enigszins onder de knie had, ben ik van voren af aan begonnen met ‘Wolkenkneder en de Wind’. <br>
+    Nu kon ik mijn werk aanpassen, zoveel ik maar wilde en was het gemakkelijker om een mooie achtergrond te maken.
+  </p>
+  <div class="gallery-2">
+    <img src="verhaal20.jpg" alt="Wolkenkneder 1">
+    <img src="verhaal21.jpg" alt="Wolkenkneder 2">
+  </div>
+  <div class="gallery-2">
+    <img src="verhaal22.jpg" alt="Wolkenkneder 3">
+    <img src="verhaal23.jpg" alt="Wolkenkneder 4">
+  </div>
+</div>
+
+<!-- Sectie 10: tekst + placeholder -->
+<div class="container section">
+  <p>
+    Momenteel probeer ik mijn digitale tekenskills te vergroten door een nieuw eigen verhaal uit te werken waarin Raaf de hoofdrol speelt.
+  </p>
+  <div class="gallery-1">
+    <div style="background:#ccc;height:300px;display:flex;align-items:center;justify-content:center;">Placeholder afbeelding</div>
+  </div>
+</div>
 
 </body>
 </html>

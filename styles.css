@@ -40,23 +40,33 @@ nav {
 /* 2. Logo */
 .logo-section {
   text-align: center;
-  margin: 1rem 0;         /* minder ruimte tussen menu en logo */
+  margin: 1.5rem 0;         /* minder ruimte tussen menu en logo */
 }
 .logo {
-  width: 400px;           /* twee keer zo klein (voorheen 800px) */
+  width: 250px;           /* twee keer zo klein (voorheen 800px) */
   max-width: 90%;         /* past nog netjes in op kleinere schermen */
   height: auto;
 }
 
-/* 3. Intro tekst */
+/* Intro sectie */
 .intro {
-  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto 1.5rem; /* top = 1.125rem (25% minder), left/right auto, bottom blijft 1.5rem */
   padding: 0 1rem;
-  margin: 0.5rem auto 2rem; /* minder ruimte boven de alinea tov logo */
+  /* geen text-align: center hier, want we willen links uitlijnen binnen het blok */
 }
+
+/* Iedere paragraaf krijgt nu flinke onderruimte */
 .intro p {
-  max-width: 600px;
-  margin: 0 auto;
+  margin: 0 0 2rem;      /* 2rem witruimte na elke paragraaf */
+  text-align: center;
+}
+
+/* Specifieke marge voor de lijst */
+.intro ul {
+  margin: 1rem 0 2rem 1.5rem; /* 1rem boven, 2rem onder, inspringen 1.5rem */
+  list-style: disc inside;
+  text-align: center;
 }
 
 /* 4. CTA knoppen */
@@ -129,3 +139,4 @@ footer a {
     font-size: 0.9rem;
   }
 }
+
