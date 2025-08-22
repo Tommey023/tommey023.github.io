@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mijn werk – Ireen Illustraties</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Titel stijl zoals 'Mijn verhaal' */
+    h1.page-title {
+      font-family: 'Gloock', serif;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 2rem;
+      margin-bottom: 3rem; /* extra ruimte naar knoppen */
+    }
+
+    .cta-buttons { 
+      display: flex; 
+      gap: 12px; 
+      justify-content: center; 
+      margin: 0 0 40px; /* extra spacing */
+    }
+
+    /* AANGEPAST: actieve knop = zwarte stroke, witte vulling, zwarte tekst, GEEN extra outline */
+    .btn.active { 
+      outline: none;              /* geen extra zwart randje */
+      border: 2px solid #000;     /* zwarte stroke */
+      background: #fff;           /* wit ingekleurd */
+      color: #000;                /* zwarte tekst */
+    }
+
+    .work-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto 64px;
+      padding: 0 16px;
+    }
+    @media (max-width: 900px) {
+      .work-wrap { grid-template-columns: 1fr; }
+    }
+
+    .work-images img {
+      width: 100%;
+      margin-bottom: 16px;
+      /* border: 2px solid #ccc; */
+    }
+    .work-text h2 { margin: 0 0 12px; font-size: 22px; }
+    .work-text p { line-height: 1.6; margin: 0 0 10px; }
+  </style>
+</head>
+<body>
+  <!-- Menubar -->
+  <nav>
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="verhaal.html">Mijn verhaal</a></li>
+      <li><a href="werk.html" aria-current="page">Mijn werk</a></li>
+      <li><a href="lessen.html">Lessen</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Titel -->
+  <h1 class="page-title">Mijn werk</h1>
+
+  <!-- Knoppen -->
+  <section class="cta-buttons" aria-label="Projectkeuze">
+    <button class="btn active" data-key="koekje">Het laatste koekje</button>
+    <button class="btn" data-key="vos">Kom je bij me eten</button>
+    <button class="btn" data-key="wolken">Wolkenkneder</button>
+  </section>
+
+  <!-- Twee delen -->
+  <section class="work-wrap">
+    <div id="work-image" class="work-images">
+      <img src="werk_koekje_1.jpg" alt="Het laatste koekje afbeelding 1">
+      <img src="werk_koekje2.jpg" alt="Het laatste koekje afbeelding 2">
+    </div>
+
+    <article id="work-text" class="work-text">
+      <h2>Het laatste koekje</h2>
+      <p><em>Geschreven door Gerard Delft.</em></p>
+      <p>
+        Uit beleefdheid pakt niemand het laatste koekje uit de trommel. Gelukkig wekt een straal
+        maanlicht het koekje tot leven, zodat ‘Het Laatste Koekje’ zelf op zoek kan gaan naar iemand
+        die ook hém eindelijk op zal eten. Want opgegeten worden is zijn grootste wens. Daar zijn
+        koekjes immers voor gemaakt!
+      </p>
+      <p>
+        Het Laatste Koekje maakt nog heel wat mee, voor zijn grote wens eindelijk in vervulling gaat.
+      </p>
+    </article>
+  </section>
+
+  <script>
+    const content = {
+      koekje: {
+        images: ["werk_koekje1.jpg", "werk_koekje2.jpg"],
+        html: `
+          <h2>Het laatste koekje</h2>
+          <p><em>Geschreven door Gerard Delft.</em></p>
+          <p>
+            Uit beleefdheid pakt niemand het laatste koekje uit de trommel. Gelukkig wekt een straal
+            maanlicht het koekje tot leven, zodat ‘Het Laatste Koekje’ zelf op zoek kan gaan naar iemand
+            die ook hém eindelijk op zal eten. Want opgegeten worden is zijn grootste wens. Daar zijn
+            koekjes immers voor gemaakt!
+          </p>
+          <p>
+            Het Laatste Koekje maakt nog heel wat mee, voor zijn grote wens eindelijk in vervulling gaat.
+          </p>
+        `
+      },
+      vos: {
+        images: ["werk_eten1.jpg", "werk_eten2.jpg"],
+        html: `
+          <h2>Kom je bij me eten?</h2>
+          <p><em>Geschreven door Gerard Delft.</em></p>
+          <p>
+            De dieren in de omgeving van Vos lijken hem een lekker hapje. Daarom wil hij ze één voor één
+            naar zijn hol lokken, zodat ze niet aan hem kunnen ontsnappen. Hoe hij dat doet? Heel slim:
+            hij maakt het lievelingsmaal van elk dier.
+          </p>
+          <p>
+            Trappen de andere dieren in de val, of doorzien ze Vos’ sluwe plannetje?
+          </p>
+        `
+      },
+      wolken: {
+        images: ["werk_wk1.jpg", "werk_wk2.jpg"],
+        html: `
+          <h2>Wolkenkneder en de Wind</h2>
+         <p><em>Geschreven door Gerard Delft.</em></p>
+          <p>
+            Als je weleens naar de lucht hebt gekeken, dan weet je dat de wolken er steeds weer anders
+            uitzien. Ze veranderen van vorm en van kleur. Maar wist je ook al dat het veranderen van de
+            wolkenlucht te maken heeft met de vrienden Wind en Wolkenkneder?
+          </p>
+        `
+      }
+    };
+
+    const buttons = document.querySelectorAll('.cta-buttons .btn');
+    const imgBox  = document.getElementById('work-image');
+    const textBox = document.getElementById('work-text');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const key = btn.getAttribute('data-key');
+        const { images, html } = content[key];
+
+        imgBox.innerHTML = images.map(src => `<img src="${src}" alt="${key} afbeelding">`).join('');
+        textBox.innerHTML = html;
+
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          document.querySelector('.work-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

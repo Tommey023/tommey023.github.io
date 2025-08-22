@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lessen – Ireen Illustraties</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Titel + subtitel in Gloock zoals op 'Mijn werk' */
+    h1.page-title {
+      font-family: 'Gloock', serif;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 2rem;
+      margin-bottom: .5rem;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .intro-text {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    /* Knoppenbalk */
+    .cta-buttons { 
+      display: flex; 
+      gap: 12px; 
+      justify-content: center; 
+      margin: 0 0 40px;
+    }
+    .btn.active { 
+      outline: none;
+      border: 2px solid #000;
+      background: #fff;
+      color: #000;
+    }
+
+    /* 2-koloms layout */
+    .work-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto 64px;
+      padding: 0 16px;
+    }
+    @media (max-width: 900px) {
+      .work-wrap { grid-template-columns: 1fr; }
+    }
+
+    /* Afbeeldingen */
+    .work-images img { 
+      width: 100%; 
+      height: 250px;       /* vaste hoogte voor gelijk uitlijnen */
+      object-fit: cover;   /* vult het vlak zonder vervormen */
+      display: block; 
+    }
+
+    /* Speciale hoogte voor groep 7/8 */
+    .work-images.g78 img {
+      height: 350px; /* hogere, meer verticale vorm */
+    }
+
+    /* Collage (1 breed + 2 eronder) */
+    .grid-1-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .grid-1-2 .span-2 { grid-column: 1 / -1; }
+
+    /* Twee naast elkaar */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 700px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* Tekstkolom */
+    .work-text h2 { margin: 0 0 12px; font-size: 22px; }
+    .work-text p { line-height: 1.6; margin: 0 0 10px; }
+  </style>
+</head>
+<body>
+  <!-- Menubar -->
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="verhaal.html">Mijn verhaal</a></li>
+      <li><a href="werk.html">Mijn werk</a></li>
+      <li><a href="lessen.html" aria-current="page">Lessen</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Titel + subtitel -->
+  <h1 class="page-title">Teken- en Illustratielessen</h1>
+  <p class="subtitle">Op de basisschool</p>
+
+  <!-- Intro tekst -->
+  <p class="intro-text">
+    Ik heb veel ervaring als groepsleerkracht op de basisschool. Je kunt me inhuren voor een les of lessenserie
+    rond een thema, materiaal of beeldelement. Hier zie je een aantal voorbeelden:
+  </p>
+
+  <!-- Knoppen -->
+  <section class="cta-buttons" aria-label="Lesgroepen">
+    <button class="btn active" data-key="g34">Groep 3 en 4</button>
+    <button class="btn" data-key="g56">Groep 5 en 6</button>
+    <button class="btn" data-key="g78">Groep 7 en 8</button>
+  </section>
+
+  <!-- Content -->
+  <section class="work-wrap">
+    <!-- Links (afbeeldingen) -->
+    <div id="work-image" class="work-images">
+      <!-- default: groep 3/4 collage -->
+      <div class="grid-1-2">
+        <img class="span-2" src="les1.jpg" alt="Lesvoorbeeld groep 3/4 - afbeelding 1">
+        <img src="les2.jpg" alt="Lesvoorbeeld groep 3/4 - afbeelding 2">
+        <img src="les3.jpg" alt="Lesvoorbeeld groep 3/4 - afbeelding 3">
+      </div>
+    </div>
+
+    <!-- Rechts (tekst) -->
+    <article id="work-text" class="work-text">
+      <h2>Groep 3 en 4</h2>
+      <p>In dit Rembrandt-project maakten de kinderen eigen zelfportretten, leerden ze werken met houtskool (donker/licht) en knutselden ze in groepjes het Rembrandthuis.</p>
+    </article>
+  </section>
+
+  <script>
+    // Config voor de drie groepen
+    const content = {
+      g34: {
+        imagesHTML: `
+          <div class="grid-1-2">
+            <img class="span-2" src="les1.jpg" alt="Lesvoorbeeld groep 3/4 - afbeelding 1">
+            <img src="les2.jpg" alt="Lesvoorbeeld groep 3/4 - afbeelding 2">
+            <img src="les3.jpg" alt="Lesvoorbeeld groep 3/4 - afbeelding 3">
+          </div>
+        `,
+        html: `
+          <h2>Groep 3 en 4</h2>
+          <p>In dit Rembrandt-project maakten de kinderen eigen zelfportretten, leerden ze werken met houtskool (donker/licht) en knutselden ze in groepjes het Rembrandthuis.</p>
+        `
+      },
+      g56: {
+        imagesHTML: `
+          <div class="grid-2">
+            <img src="les4.jpg" alt="Groep 5/6 - inkt en fineliner">
+            <img src="les5.jpg" alt="Groep 5/6 - draak in verf">
+          </div>
+        `,
+        html: `
+          <h2>Groep 5 en 6</h2>
+          <p>We experimenteerden met inkt en fineliner voor contrastrijke illustraties. Daarnaast schilderden de kinderen “mijn draak en ik” met verf: vorm, kleurvlakken en details kwamen samen in een eigen fantasiefiguur.</p>
+        `
+      },
+      g78: {
+        imagesHTML: `
+          <div class="grid-2 g78">
+            <img src="les6.jpg" alt="Groep 7/8 - zee illustratie links">
+            <img src="les7.jpg" alt="Groep 7/8 - zee illustratie rechts">
+          </div>
+        `,
+        html: `
+          <h2>Groep 7 en 8</h2>
+          <p>We oefenden diepte creëren in een zee-context met inkt en verf: lagen, overlap en toonwaarden om voor- en achtergrond te laten spreken.</p>
+        `
+      }
+    };
+
+    // Interactie (zoals op 'Mijn werk')
+    const buttons = document.querySelectorAll('.cta-buttons .btn');
+    const imgBox  = document.getElementById('work-image');
+    const textBox = document.getElementById('work-text');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const key = btn.getAttribute('data-key');
+        const { imagesHTML, html } = content[key];
+
+        imgBox.innerHTML = imagesHTML;
+        textBox.innerHTML = html;
+
+        // voeg speciale class toe bij g78
+        if (key === 'g78') {
+          imgBox.classList.add('g78');
+        } else {
+          imgBox.classList.remove('g78');
+        }
+
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          document.querySelector('.work-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

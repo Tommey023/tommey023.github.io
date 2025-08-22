@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ireen Illustraties</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Minimale extra styles voor de achtergrond en overlay -->
+  <style>
+    :root { --maxw: 920px; }
+    body { margin: 0; font-family: 'Instrument Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+
+    /* Zorg dat het logo-sectie dezelfde stijl behoudt; dit laat alles erboven intact */
+    .logo-section {
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem 1rem 0 1rem;
+    }
+    .logo {
+      max-width: 520px;
+      height: auto;
+      display: block;
+    }
+
+    /* HERO als achtergrond, begint een stukje onder de titel */
+    .hero-image {
+      position: relative;
+      margin-top: 1.5rem;            /* “een stukje onder de titel” */
+      min-height: 70vh;              /* voldoende hoogte voor achtergrond */
+      background-image: url('IreenIllustratiesLandingPage.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Overlay content (tekst + knoppen) */
+    .hero-content {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,.45);
+    }
+
+    /* Tekst wit over de afbeelding */
+    .intro { color: #fff; }
+    .intro p, .intro ul, .intro li { color: #fff; }
+    .intro ul { margin: 0.75rem 0 1rem 1.25rem; }
+
+    /* Knoppen wit met zwarte tekst en over de achtergrond */
+    .cta-buttons {
+      margin-top: 1.25rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: #fff;
+      color: #000;
+      border: 1px solid rgba(0,0,0,.15);
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      line-height: 1;
+      display: inline-block;
+    }
+    .btn:focus, .btn:hover {
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    /* Verberg losse img in hero indien die elders nog zou staan */
+    .hero-image img.responsive-image { display: none; }
+
+    /* Menu basaal laten zoals was; enkel wat defensieve spacing */
+    nav { padding: 0.5rem 1rem; }
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .menu a { text-decoration: none; color: inherit; }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- 1. Menubar -->
+  <nav>
+    <ul class="menu">
+      <li><a href="verhaal.html">Mijn verhaal</a></li>
+      <li><a href="werk.html">Mijn werk</a></li>
+      <li><a href="lessen.html">Lessen</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- 2. Logo -->
+  <section class="logo-section">
+    <img src="ireenillustratiestext.png" alt="Ireen Illustraties logo" class="logo" />
+  </section>
+
+  <!-- 3–5. Achtergrond + overlay met tekst en knoppen -->
+  <section class="hero-image">
+    <div class="hero-content">
+      <!-- 3. Introductie alinea (nu wit over de achtergrond) -->
+      <section class="intro">
+        <p>
+          Welkom op mijn website!<br>
+          In 2010 besloot ik, naast een baan in het onderwijs, mijn ‘slapende passie’<br>
+          nieuw leven in te blazen. Ik begon met een tekencursus en haalde daar<br>
+          tot mijn verrassing nog meer plezier uit dan ik had gehoopt.<br>
+          Van het één kwam het ander. Inmiddels heb ik verschillende prentenboeken<br>
+          geïllustreerd. Je kunt bij me terecht voor:
+        </p>
+        <ul>
+          <li>Het illustreren van je kinderboek</li>
+          <li>Losse illustraties (bijv. kaart, poster)</li>
+          <li>Een les of een lessenserie voor groep 3 t/m 8 van de basisschool</li>
+        </ul>
+
+        <p>Groeten, Ireen</p>
+      </section>
+
+      <!-- 4. Twee knoppen (wit met zwarte tekst, over de achtergrond) -->
+      <section class="cta-buttons">
+        <a href="#mijn-verhaal" class="btn">Ireen</a>
+        <a href="#mijn-werk"   class="btn">Illustraties</a>
+      </section>
+    </div>
+  </section>
+
+  <!-- 6. Footer -->
+  <footer>
+    <p><strong>Contact</strong></p>
+    <p>
+      <a href="mailto:irene.vanveen1@gmail.com">irene.vanveen1@gmail.com</a>
+    </p>
+  </footer>
+</body>
+</html>

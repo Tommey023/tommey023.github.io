@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – Ireen Illustraties</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root { --accent: #e4582f; }
+
+    /* Titel in Gloock, gecentreerd zoals andere pagina's */
+    h1.page-title {
+      font-family: 'Gloock', serif;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 2rem;
+      margin-bottom: .5rem;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 2.5rem; /* extra ruimte toegevoegd */
+      font-size: 1.1rem;
+    }
+
+    /* Zelfde 2-koloms basis als .work-wrap */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 400px 1fr; /* afbeelding smaller en verticaler */
+      gap: 28px;
+      max-width: 900px;
+      margin: 0 auto 64px;
+      padding: 0 16px;
+      align-items: start; /* top-align beide kolommen */
+    }
+    @media (max-width: 900px) {
+      .contact-wrap { grid-template-columns: 1fr; }
+    }
+
+    /* Afbeelding links: exact gelijk starten met tekstkolom */
+    .contact-image { margin-top: 0; }
+    .contact-image img {
+      width: 100%;
+      height: 600px;     /* verticaler formaat */
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .contact-image img { height: 380px; }
+    }
+
+    /* Tekstkolom rechts */
+    .contact-text {
+      background: rgba(0,0,0,0.0);
+      padding: 0; /* geen extra top-padding zodat top exact gelijk valt */
+    }
+    .contact-text h2 {
+      font-family: 'Gloock', serif;
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 0 0 .75rem; /* geen top-margin */
+    }
+    .contact-text p {
+      font-family: 'Instrument Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      line-height: 1.6;
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+    }
+
+    /* E-mail callout onderaan extra opvallend */
+    .email-highlight {
+      margin-top: 18px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--accent);
+      word-break: break-word;
+    }
+    .email-highlight a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 2px solid currentColor;
+    }
+    .email-highlight a:hover { opacity: .8; }
+  </style>
+</head>
+<body>
+  <!-- Menubar -->
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="verhaal.html">Mijn verhaal</a></li>
+      <li><a href="werk.html">Mijn werk</a></li>
+      <li><a href="lessen.html">Lessen</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Titel -->
+  <h1 class="page-title">Contact</h1>
+  <p class="subtitle">Stuur gerust een berichtje</p>
+
+  <!-- Layout: Afbeelding links – Tekst rechts -->
+  <section class="contact-wrap">
+    <div class="contact-image">
+      <img src="contact.jpg" alt="Ireen – contactfoto">
+    </div>
+
+    <article class="contact-text">
+      <h2>Ireen</h2>
+      <p>Ik ben Ireen. Illustrator en onderwijzer uit Haarlem.</p>
+      <p>Ik illustreer kinderboeken en geef diverse creatieve lessen aan kinderen van 6 tot 12 jaar. Meer over mij kun je lezen bij ‘mijn verhaal’.
+        Je kunt bij mij terecht voor:</p>
+      <p>- Het illustreren van je kinderboek</p>
+      <p>- Losse illustraties (bijv. kaart, poster)</p>
+      <p>- Een les of een lessenserie voor groep 3 t/m 8 van de basisschool</p>
+
+      <p>Voor contact kun je mailen naar onderstaand adres. 
+         Ik neem zo spoedig mogelijk contact met je op om je vraag of opdracht te bespreken.</p>
+
+      <!-- Opvallend e-mailadres onderaan in oranje -->
+      <p class="email-highlight">
+        <a href="mailto:irene.vanveen1@gmail.com">irene.vanveen1@gmail.com</a>
+      </p>
+    </article>
+  </section>
+</body>
+</html>
