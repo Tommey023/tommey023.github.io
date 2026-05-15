@@ -37,15 +37,25 @@
   </style>
 </head>
 <body>
-  <nav>
-    <ul class="menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="verhaal.html">Mijn verhaal</a></li>
-      <li><a href="werk.html">Mijn werk</a></li>
-      <li><a href="lessen.html">Lessen</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+ <nav>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="verhaal.html">Mijn verhaal</a></li>
+    <li><a href="werk.html">Mijn werk</a></li>
+
+    <li class="dropdown">
+      <a href="lessen.html">Lessen</a>
+      <button class="dropdown-toggle" onclick="toggleDropdown(event)">▾</button>
+
+      <ul class="dropdown-menu" id="lessenDropdown">
+        <li><a href="lessen.html">De tekentuin</a></li>
+        <li><a href="basisschool.html">Op de basisschool</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
   <h1>Mijn verhaal</h1>
   <p class="subtitle">Van kladblok tot prentenboek</p>
@@ -156,6 +166,15 @@
     <img src="verhaal30.jpg" alt="Digitale Tekening 1">
   </div>
 </div>
+
+<script>
+  function toggleDropdown(event) {
+    event.preventDefault();
+
+    const dropdown = document.getElementById("lessenDropdown");
+    dropdown.classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>

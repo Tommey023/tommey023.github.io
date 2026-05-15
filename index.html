@@ -8,16 +8,25 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- 1. Menubar -->
-  <nav>
-    <ul class="menu">
-      <li><a href="verhaal.html">Mijn verhaal</a></li>
-      <li><a href="werk.html">Mijn werk</a></li>
-      <li><a href="lessen.html">Lessen</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<!-- 1. Menubar -->
+<nav>
+  <ul class="menu">
+    <li><a href="verhaal.html">Mijn verhaal</a></li>
+    <li><a href="werk.html">Mijn werk</a></li>
 
+    <li class="dropdown">
+      <a href="lessen.html">Lessen</a>
+      <button class="dropdown-toggle" onclick="toggleDropdown(event)">▾</button>
+
+      <ul class="dropdown-menu" id="lessenDropdown">
+        <li><a href="lessen.html">De tekentuin</a></li>
+        <li><a href="basisschool.html">Op de basisschool</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
   <!-- 2. Logo -->
   <section class="logo-section">
     <img src="ireenillustratiestext.png" alt="Ireen Illustraties logo" class="logo" />
@@ -53,5 +62,14 @@
       <a href="mailto:irene.vanveen1@gmail.com">irene.vanveen1@gmail.com</a>
     </p>
   </footer>
+
+  <script>
+  function toggleDropdown(event) {
+    event.preventDefault();
+
+    const dropdown = document.getElementById("lessenDropdown");
+    dropdown.classList.toggle("show");
+  }
+</script>
 </body>
 </html>

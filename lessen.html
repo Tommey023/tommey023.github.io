@@ -3,95 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lessen – Ireen Illustraties</title>
+  <title>De Tekentuin – Ireen Illustraties</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <style>
-    /* Titel + subtitel in Gloock zoals op 'Mijn werk' */
+    /* Titel + subtitel */
     h1.page-title {
       font-family: 'Gloock', serif;
       text-align: center;
       font-size: 2.5rem;
-      margin-top: 2rem;
-      margin-bottom: .5rem;
+      margin-top: 0;
+      margin-bottom: 2rem;
     }
+
     .subtitle {
       text-align: center;
-      margin-bottom: 1rem;
+      margin-top: 2rem;
+      margin-bottom: .5rem;
       font-size: 1.1rem;
     }
-    .intro-text {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      line-height: 1.6;
-    }
 
-    /* Knoppenbalk */
-    .cta-buttons { 
-      display: flex; 
-      gap: 12px; 
-      justify-content: center; 
-      margin: 0 0 40px;
-    }
-    .btn.active { 
-      outline: none;
-      border: 2px solid #000;
-      background: #fff;
-      color: #000;
-    }
-
-    /* 2-koloms layout */
-    .work-wrap {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 28px;
-      max-width: 1100px;
+    /* Algemene pagina layout */
+    .tekentuin-wrap {
+      max-width: 900px;
       margin: 0 auto 64px;
       padding: 0 16px;
     }
-    @media (max-width: 900px) {
-      .work-wrap { grid-template-columns: 1fr; }
+
+    /* Eerste centrale afbeelding */
+    .main-image {
+      display: block;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 40px;
     }
 
-    /* Afbeeldingen */
-    .work-images img { 
-      width: 100%; 
-      height: 250px;       /* vaste hoogte voor gelijk uitlijnen */
-      object-fit: cover;   /* vult het vlak zonder vervormen */
-      display: block; 
+    /* Tekst */
+    .tekentuin-text {
+      text-align: left;
+      line-height: 1.6;
+      margin-bottom: 32px;
     }
 
-    /* Speciale hoogte voor groep 7/8 */
-    .work-images.g78 img {
-      height: 350px; /* hogere, meer verticale vorm */
+    .tekentuin-text p {
+      margin: 0 0 18px;
     }
 
-    /* Collage (1 breed + 2 eronder) */
-    .grid-1-2 {
+    /* Tabellen */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 1rem;
+    }
+
+    .info-table th,
+    .info-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .info-table th {
+      background: #f7f7f7;
+      font-weight: 700;
+    }
+
+    /* Twee afbeeldingen naast elkaar */
+    .image-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
       gap: 16px;
+      margin: 40px 0;
     }
-    .grid-1-2 .span-2 { grid-column: 1 / -1; }
 
-    /* Twee naast elkaar */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+    .image-row img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
     }
+
     @media (max-width: 700px) {
-      .grid-2 { grid-template-columns: 1fr; }
-    }
+      .image-row {
+        grid-template-columns: 1fr;
+      }
 
-    /* Tekstkolom */
-    .work-text h2 { margin: 0 0 12px; font-size: 22px; }
-    .work-text p { line-height: 1.6; margin: 0 0 10px; }
+      .image-row img {
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -101,202 +112,219 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="verhaal.html">Mijn verhaal</a></li>
       <li><a href="werk.html">Mijn werk</a></li>
-      <li><a href="lessen.html" aria-current="page">Lessen</a></li>
+
+      <li class="dropdown">
+        <a href="tekentuin.html" aria-current="page">Lessen</a>
+        <button class="dropdown-toggle" onclick="toggleDropdown(event)">▾</button>
+
+        <ul class="dropdown-menu" id="lessenDropdown">
+          <li><a href="tekentuin.html">De tekentuin</a></li>
+          <li><a href="basisschool.html">Op de basisschool</a></li>
+        </ul>
+      </li>
+
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Titel + subtitel -->
-  <h1 class="page-title">Teken- en Illustratielessen</h1>
-  <p class="subtitle">Op de basisschool</p>
+  <p class="subtitle">Welkom in</p>
+  <h1 class="page-title">De Tekentuin</h1>
 
-  <!-- Intro tekst -->
-  <p class="intro-text">
-    Ik heb veel ervaring als groepsleerkracht op de basisschool. Je kunt me inhuren voor een les of lessenserie
-    rond een thema, materiaal of beeldelement. Hier zie je een aantal voorbeelden:
-  </p>
+  <main class="tekentuin-wrap">
 
-  <!-- Knoppen -->
-  <section class="cta-buttons" aria-label="Lesgroepen">
-    <button class="btn active" data-key="kbw2025">Kinderboekenweek 2025</button>
-    <button class="btn" data-key="g34">Groep 3 en 4</button>
-    <button class="btn" data-key="g56">Groep 5 en 6</button>
-    <button class="btn" data-key="g78">Groep 7 en 8</button>
-  </section>
+    <!-- Centrale afbeelding -->
+    <img src="tekentuin1.jpg" alt="De Tekentuin" class="main-image">
 
+    <!-- Tekst -->
+    <section class="tekentuin-text">
+      <p><strong>Wat gaan we doen</strong><br>
+        Stap voor stap ga je leren allerlei verschillende personages te ontwerpen van mensen en dieren.
+        Hoe ziet een gezicht of snuitje eruit? Hoe laat je bijvoorbeeld je figuurtje blij, boos of omhoog kijken?
+        Hoe geef je je figuur een eigen karakter en hoe kun je hem laten bewegen op papier?
+        Ontdek hoe oneindig veel mogelijkheden er zijn als je aan het tekenen gaat!
+      </p>
 
-<!-- Content -->
-<section class="work-wrap" id="work-wrap">
-  <div id="work-image" class="work-images"></div>
-  <article id="work-text" class="work-text"></article>
+      <p>
+        We werken met verschillende materialen, zoals aquarelverf, inkt, softpastels, acrylverf, noem maar op.
+        Je kunt heerlijk creatief zijn en er valt ook veel te leren.
+      </p>
+
+      <p>
+        De maximale groepsgrootte is 8 kinderen.<br>
+        Dus er is veel aandacht voor iedereen.
+      </p>
+
+      <p><strong>Waar</strong><br>
+        De lessen worden gegeven in mijn atelier aan huis in Haarlem, Schakwijk, in de buurt van de Boerhaavelaan.
+      </p>
+
+      <section class="map-section">
+  <div id="tekentuin-map"></div>
 </section>
 
+      <p><strong>Wanneer</strong><br>
+        De lessen worden gegeven op maandag en woensdag:
+      </p>
+
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th>Dag</th>
+            <th>Leeftijd</th>
+            <th>Groep</th>
+            <th>Tijd</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Maandag</td>
+            <td>6 t/m 9 jaar</td>
+            <td>Groep 3 t/m 5</td>
+            <td>15.00 - 16.15</td>
+          </tr>
+          <tr>
+            <td>Maandag</td>
+            <td>9 t/m 12 jaar</td>
+            <td>Groep 6 t/m 8</td>
+            <td>16.30 - 17.45</td>
+          </tr>
+          <tr>
+            <td>Woensdag</td>
+            <td>6 t/m 9 jaar</td>
+            <td>Groep 3 t/m 5</td>
+            <td>15.00 - 16.15</td>
+          </tr>
+          <tr>
+            <td>Woensdag</td>
+            <td>9 t/m 12 jaar</td>
+            <td>Groep 6 t/m 8</td>
+            <td>16.30 - 17.45</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        * Tijdens de schoolvakanties zijn er geen lessen.<br>
+        * Lessen inhalen is niet mogelijk.
+      </p>
+    </section>
+
+    <!-- Twee afbeeldingen naast elkaar -->
+    <section class="image-row">
+      <img src="tekentuin2.jpeg" alt="Tekentuin lesvoorbeeld 1">
+      <img src="tekentuin3.jpeg" alt="Tekentuin lesvoorbeeld 2">
+    </section>
+
+    <!-- Tarief tekst -->
+    <section class="tekentuin-text">
+      <p><strong>Tarief</strong><br>
+        De kosten bedragen 10 euro per les. Materiaal is daarbij inbegrepen.
+      </p>
+
+      <p>
+        Je kunt je opgeven voor een periode:
+      </p>
+
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th>Periode</th>
+            <th>Wanneer</th>
+            <th>Kosten</th>
+            <th>Aantal lessen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Periode 1</td>
+            <td>Van zomervakantie tot kerstvakantie</td>
+            <td>170 euro</td>
+            <td>17 lessen</td>
+          </tr>
+          <tr>
+            <td>Periode 2</td>
+            <td>Van kerstvakantie tot Pasen</td>
+            <td>100 euro</td>
+            <td>10 lessen</td>
+          </tr>
+          <tr>
+            <td>Periode 3</td>
+            <td>Van Pasen tot de zomervakantie</td>
+            <td>120 euro</td>
+            <td>12 lessen</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Het bedrag dient voor de eerste les te zijn overgemaakt.<br>
+        Instructies hiervoor ontvang je bij aanmelding.
+      </p>
+
+      <p>
+        Als je al lessen volgt, kun je gegarandeerd verder in de volgende periode.<br>
+        Als je wil stoppen kun je dat tot drie weken van tevoren aangeven.
+      </p>
+    </section>
+
+<!-- Aanmelden -->
+<section class="aanmelden-blok">
+  <p><strong>Aanmelden</strong><br>
+    Meld je aan via onderstaande knop of door een mail te sturen naar:<br>
+    <a href="mailto:irene.vanveen1@gmail.com">irene.vanveen1@gmail.com</a>
+  </p>
+
+  <div class="aanmelden-section">
+    <a 
+      href="mailto:irene.vanveen1@gmail.com?subject=Aanmelding%20voor%20de%20tekentuin&body=Beste%20Irene%2C%0D%0A%0D%0AIk%20wil%20me%2Fmijn%20kind%20graag%20aanmelden%20voor%20de%20tekentuin.%0D%0A%0D%0ANaam%20van%20het%20kind%3A%0D%0AGeboortedatum%3A%0D%0ADe%20dag%20van%20je%20keuze%3A%0D%0ATelefoonnummer%20voor%20contact%3A%0D%0A%0D%0AMet%20vriendelijke%20groet%2C%20%0D%0A%0D%0A%5Buw%20naam%5D"
+      class="btn aanmelden-btn"
+    >
+      Aanmelden
+    </a>
+  </div>
+
+  <p>
+    Als je van tevoren graag de locatie wil zien en even wil kennismaken dan is dat mogelijk.<br>
+    Heb je nog vragen, bel me dan gerust even:
+  </p>
+
+  <p>
+    Irene &nbsp; 06 45482836
+  </p>
+</section>
+
+<!-- Afbeelding onderaan -->
+<img src="tekentuin4.jpg" alt="De Tekentuin" class="bottom-image">
+
+
+  </main>
 
   <script>
-    // Config voor de drie groepen
-    const content = {
-      kbw2025: {
-  imagesHTML: `
-<h2 style="text-align:center;">
-  Kinderboekenweek 2025: Vol avontuur!<br>
-  <span style="font-weight:400;">in groep 4/5 van de Dolfijn in Haarlem</span>
-</h2>
+    function toggleDropdown(event) {
+      event.preventDefault();
 
-
-    <div class="gallery-2">
-      <img src="Kinderboekenweek1.jpeg" alt="Kinderboekenweek 2025 – achtergrond schilderen">
-      <img src="Kinderboekenweek2.jpeg" alt="Kinderboekenweek 2025 – mijn lievelingsavontuur is naar de regenboog">
-    </div>
-
-    <p><strong>Lesverloop</strong><br>
-    Na de instructie in les 1 schetsten de kinderen hun eigen lievelingsavontuur en schilderden ze hun achtergrond.
-    In les 2 werden de ideeën van les 1 verder uitgewerkt en in de achtergrond geschilderd.</p>
-
-    <div class="gallery-2">
-      <img src="Kinderboekenweek3.jpeg" alt="Kinderboekenweek – uitleg in de klas">
-      <img src="Kinderboekenweek4.jpeg" alt="Kinderboekenweek – begeleiding tijdens schilderen">
-    </div>
-    <div class="gallery-3">
-      <img src="Kinderboekenweek5.jpeg" alt="Kinderboekenweek – berglandschap schilderij">
-      <img src="Kinderboekenweek6.jpeg" alt="Kinderboekenweek – werk in uitvoering 1">
-      <img src="Kinderboekenweek7.jpeg" alt="Kinderboekenweek – werk in uitvoering 2">
-    </div>
-
-    <p><br><strong>Het eindresultaat</strong><br>
-De kinderen waren trots op hun zelfbedachte lievelingsavontuur...</p>
-
-<!-- 9 foto's: 3 rijen van 2, daarna 1 rij van 3 -->
-<div class="gallery-2">
-  <figure>
-    <img src="Kinderboekenweek8.jpeg" alt="">
-    <figcaption><em>Op de fiets in het bos</em></figcaption>
-  </figure>
-  <figure>
-    <img src="Kinderboekenweek9.jpeg" alt="">
-    <figcaption><em>Klimmen in de bergen</em></figcaption>
-  </figure>
-</div>
-
-<div class="gallery-2">
-  <figure>
-    <img src="Kinderboekenweek10.jpeg" alt="">
-    <figcaption><em>In de woestijn</em></figcaption>
-  </figure>
-  <figure>
-    <img src="Kinderboekenweek11.jpeg" alt="">
-    <figcaption><em>In de bakkerij</em></figcaption>
-  </figure>
-</div>
-
-<div class="gallery-2">
-  <figure>
-    <img src="Kinderboekenweek12.jpeg" alt="">
-    <figcaption><em>In een duikboot onder zee</em></figcaption>
-  </figure>
-  <figure>
-    <img src="Kinderboekenweek13.jpeg" alt="">
-    <figcaption><em>Surfen op de golven</em></figcaption>
-  </figure>
-</div>
-
-<div class="gallery-2">
-  <figure>
-    <img src="Kinderboekenweek14.jpeg" alt="">
-    <figcaption><em>Een duik in de zee</em></figcaption>
-  </figure>
-  <figure>
-    <img src="Kinderboekenweek16.jpeg" alt="">
-    <figcaption><em>In een duikboot bij een eiland</em></figcaption>
-  </figure>
-</div>
-  `,
-  html: `` // geen aparte rechterkolom
-},
-
-
-
-      g34: {
-        imagesHTML: `
-          <div class="grid-1-2">
-            <img class="span-2" src="les1.jpg" alt="Lesvoorbeeld groep 3/4 - afbeelding 1">
-            <img src="les2.jpg" alt="Lesvoorbeeld groep 3/4 - afbeelding 2">
-            <img src="les3.jpg" alt="Lesvoorbeeld groep 3/4 - afbeelding 3">
-          </div>
-        `,
-        html: `
-          <h2>Groep 3 en 4</h2>
-          <p>In dit Rembrandt-project maakten de kinderen eigen zelfportretten, leerden ze werken met houtskool (donker/licht) en knutselden ze in groepjes het Rembrandthuis.</p>
-        `
-      },
-      g56: {
-        imagesHTML: `
-          <div class="grid-2">
-            <img src="les4.jpg" alt="Groep 5/6 - inkt en fineliner">
-            <img src="les5.jpg" alt="Groep 5/6 - draak in verf">
-          </div>
-        `,
-        html: `
-          <h2>Groep 5 en 6</h2>
-          <p>We experimenteerden met inkt en fineliner voor contrastrijke illustraties. Daarnaast schilderden de kinderen “mijn draak en ik” met verf: vorm, kleurvlakken en details kwamen samen in een eigen fantasiefiguur.</p>
-        `
-      },
-      g78: {
-        imagesHTML: `
-          <div class="grid-2 g78">
-            <img src="les6.jpg" alt="Groep 7/8 - zee illustratie links">
-            <img src="les7.jpg" alt="Groep 7/8 - zee illustratie rechts">
-          </div>
-        `,
-        html: `
-          <h2>Groep 7 en 8</h2>
-          <p>We oefenden diepte creëren in een zee-context met inkt en verf: lagen, overlap en toonwaarden om voor- en achtergrond te laten spreken.</p>
-        `
-      }
-    };
-
-    // Interactie (zoals op 'Mijn werk')
-    const buttons = document.querySelectorAll('.cta-buttons .btn');
-    const imgBox  = document.getElementById('work-image');
-    const textBox = document.getElementById('work-text');
-    const wrap = document.getElementById('work-wrap');
-
-
-    buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const key = btn.getAttribute('data-key');
-    const { imagesHTML, html } = content[key];
-
-    // alleen KBW → enkele kolom
-    if (key === 'kbw2025') {
-      wrap.classList.add('single-column');
-    } else {
-      wrap.classList.remove('single-column');
+      const dropdown = document.getElementById("lessenDropdown");
+      dropdown.classList.toggle("show");
     }
-
-    imgBox.innerHTML = imagesHTML;
-    textBox.innerHTML = html;
-
-    if (key === 'g78') { imgBox.classList.add('g78'); }
-    else { imgBox.classList.remove('g78'); }
-
-    if (window.matchMedia('(max-width: 900px)').matches) {
-      document.querySelector('.work-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-(function initDefault() {
-  const key = 'kbw2025';
-  wrap.classList.add('single-column');
-  const { imagesHTML, html } = content[key];
-  imgBox.innerHTML = imagesHTML;
-  textBox.innerHTML = html;
-})();
-
-
   </script>
+
+  <script>
+  const map = L.map('tekentuin-map', {
+    scrollWheelZoom: false
+  }).setView([52.3675731,4.6575641], 15);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap'
+  }).addTo(map);
+
+  L.circle([52.3675731,4.6575641], {
+    radius: 300,
+    color: '#6fae75',
+    fillColor: '#6fae75',
+    fillOpacity: 0.25
+  }).addTo(map);
+</script>
+
 </body>
 </html>
