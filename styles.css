@@ -379,3 +379,46 @@ figcaption {
   padding: 0.6rem 1rem;
   white-space: nowrap;
 }
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 30px 50px;
+  text-align: left;
+}
+
+/* Bedrijfsgegevens en contact */
+.footer-info,
+.footer-contact {
+  text-align: left;
+}
+
+.footer-info p,
+.footer-contact p {
+  margin: 5px 0;
+}
+
+/* Logo helemaal rechts */
+.footer-logo {
+  margin-left: auto;
+}
+
+.footer-logo img {
+  width: 100px;
+  height: auto;
+}
+
+/* Mobiele weergave */
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 30px 20px;
+  }
+
+  .footer-logo {
+    margin-left: 0;
+  }
+}
