@@ -9,11 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <style>
     /* Titel + subtitel */
@@ -105,6 +105,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- Menubar -->
   <nav>
@@ -114,11 +115,11 @@
       <li><a href="werk.html">Mijn werk</a></li>
 
       <li class="dropdown">
-        <a href="tekentuin.html" aria-current="page">Lessen</a>
+        <a href="lessen.html" aria-current="page">Lessen</a>
         <button class="dropdown-toggle" onclick="toggleDropdown(event)">▾</button>
 
         <ul class="dropdown-menu" id="lessenDropdown">
-          <li><a href="tekentuin.html">De tekentuin</a></li>
+          <li><a href="lessen.html">De tekentuin</a></li>
           <li><a href="basisschool.html">Op de basisschool</a></li>
         </ul>
       </li>
@@ -160,8 +161,8 @@
       </p>
 
       <section class="map-section">
-  <div id="tekentuin-map"></div>
-</section>
+        <div id="tekentuin-map"></div>
+      </section>
 
       <p><strong>Wanneer</strong><br>
         De lessen worden gegeven op maandag en woensdag:
@@ -210,72 +211,92 @@
       </p>
     </section>
 
-   <!-- Foto carousel -->
-<section class="photo-carousel">
+    <!-- Foto carousel -->
+    <section class="photo-carousel">
 
-  <button class="carousel-arrow prev" aria-label="Vorige foto"></button>
+      <button class="carousel-arrow prev" aria-label="Vorige foto"></button>
 
-  <div class="carousel-viewport">
-    <div class="carousel-track">
+      <div class="carousel-viewport">
+        <div class="carousel-track">
 
-      <div class="carousel-slide">
-        <img src="Etalage1.jpeg" alt="De Tekentuin">
+          <div class="carousel-slide">
+            <img src="Etalage1.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage2.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage3.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage4.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage5.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage6.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage7.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage8.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage9.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage10.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage11.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage12.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage13.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage14.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage15.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage16.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage17.jpeg" alt="De Tekentuin">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Etalage18.jpeg" alt="De Tekentuin">
+          </div>
+
+        </div>
       </div>
 
-      <div class="carousel-slide">
-        <img src="Etalage2.jpeg" alt="De Tekentuin">
-      </div>
+      <button class="carousel-arrow next" aria-label="Volgende foto"></button>
 
-      <div class="carousel-slide">
-        <img src="Etalage3.jpeg" alt="De Tekentuin">
-      </div>
-
-      <div class="carousel-slide">
-        <img src="Etalage4.jpeg" alt="De Tekentuin">
-      </div>
-
-      <div class="carousel-slide">
-        <img src="Etalage5.jpeg" alt="De Tekentuin">
-      </div>
-
-      <div class="carousel-slide">
-        <img src="Etalage6.jpeg" alt="De Tekentuin">
-      </div>
-
-      <div class="carousel-slide">
-        <img src="Etalage7.jpeg" alt="De Tekentuin">
-      </div>
-
-      <div class="carousel-slide">
-        <img src="Etalage8.jpeg" alt="De Tekentuin">
-      </div>
-
-      <div class="carousel-slide">
-        <img src="Etalage9.jpeg" alt="De Tekentuin">
-      </div>
-
-      <div class="carousel-slide">
-        <img src="Etalage10.jpeg" alt="De Tekentuin">
-      </div>
-
-      <div class="carousel-slide">
-        <img src="Etalage11.jpeg" alt="De Tekentuin">
-      </div>
-
-      <div class="carousel-slide">
-        <img src="Etalage12.jpeg" alt="De Tekentuin">
-      </div>
-
-      <div class="carousel-slide">
-        <img src="Etalage13.jpeg" alt="De Tekentuin">
-      </div>
-
-    </div>
-  </div>
-
-  <button class="carousel-arrow next" aria-label="Volgende foto"></button>
-
-</section>
+    </section>
 
     <!-- Tarief tekst -->
     <section class="tekentuin-text">
@@ -329,42 +350,40 @@
       </p>
     </section>
 
-<!-- Aanmelden -->
-<section class="aanmelden-blok">
-  <p><strong>Aanmelden</strong><br>
-    Meld je aan via onderstaande knop of door een mail te sturen naar:<br>
-    <a href="mailto:irene.vanveen1@gmail.com">irene.vanveen1@gmail.com</a>
-  </p>
+    <!-- Aanmelden -->
+    <section class="aanmelden-blok">
+      <p><strong>Aanmelden</strong><br>
+        Meld je aan via onderstaande knop of door een mail te sturen naar:<br>
+        <a href="mailto:irene.vanveen1@gmail.com">irene.vanveen1@gmail.com</a>
+      </p>
 
-<div class="aanmelden-section">
-  <a 
-    href="https://forms.gle/9E22akJpNBWVtVdi6"
-    class="btn aanmelden-btn"
-    target="_blank"
-  >
-    Aanmelden
-  </a>
-</div>
+      <div class="aanmelden-section">
+        <a
+          href="https://forms.gle/9E22akJpNBWVtVdi6"
+          class="btn aanmelden-btn"
+          target="_blank"
+        >
+          Aanmelden
+        </a>
+      </div>
 
-  <p>
-    Als je van tevoren graag de locatie wil zien en even wil kennismaken dan is dat mogelijk.<br>
-    Heb je nog vragen, bel me dan gerust even:
-  </p>
-<br> 
-  <p>
-    Irene<br> 
-  +31 (0) 6 45482836<br>
-  <br>
-    De Tekentuin Haarlem<br>
-  KVK: 42173230
-  </p>
+      <p>
+        Als je van tevoren graag de locatie wil zien en even wil kennismaken dan is dat mogelijk.<br>
+        Heb je nog vragen, bel me dan gerust even:
+      </p>
+      <br>
 
+      <p>
+        Irene<br>
+        +31 (0) 6 45482836<br>
+        <br>
+        De Tekentuin Haarlem<br>
+        KVK: 42173230
+      </p>
+    </section>
 
-</section>
-
-<!-- Afbeelding onderaan -->
-<img src="tekentuin4.jpg" alt="De Tekentuin" class="bottom-image">
-
+    <!-- Afbeelding onderaan -->
+    <img src="tekentuin4.jpg" alt="De Tekentuin" class="bottom-image">
 
   </main>
 
@@ -378,216 +397,193 @@
   </script>
 
   <script>
-  const map = L.map('tekentuin-map', {
-    scrollWheelZoom: false
-  }).setView([52.3675731,4.6575641], 15);
+    const map = L.map('tekentuin-map', {
+      scrollWheelZoom: false
+    }).setView([52.3675731, 4.6575641], 15);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap'
-  }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
 
-  L.circle([52.3675731,4.6575641], {
-    radius: 300,
-    color: '#6fae75',
-    fillColor: '#6fae75',
-    fillOpacity: 0.25
-  }).addTo(map);
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+    L.circle([52.3675731, 4.6575641], {
+      radius: 300,
+      color: '#6fae75',
+      fillColor: '#6fae75',
+      fillOpacity: 0.25
+    }).addTo(map);
+  </script>
 
-  const carousel = document.querySelector(".photo-carousel");
-  const track = carousel.querySelector(".carousel-track");
-  const prevButton = carousel.querySelector(".prev");
-  const nextButton = carousel.querySelector(".next");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-  const originalSlides = Array.from(
-    track.querySelectorAll(".carousel-slide")
-  );
+      const carousel = document.querySelector(".photo-carousel");
+      const track = carousel.querySelector(".carousel-track");
+      const prevButton = carousel.querySelector(".prev");
+      const nextButton = carousel.querySelector(".next");
 
-  const totalSlides = originalSlides.length;
+      const originalSlides = Array.from(
+        track.querySelectorAll(".carousel-slide")
+      );
 
-  let currentIndex;
-  let autoPlay;
-  let isAnimating = false;
+      const totalSlides = originalSlides.length;
 
+      let currentIndex;
+      let autoPlay;
+      let isAnimating = false;
 
-  /* =========================
-     KOPIEËN MAKEN VOOR LOOP
-     ========================= */
+      /* =========================
+         KOPIEËN MAKEN VOOR LOOP
+         ========================= */
 
-  // Hele serie vooraan kopiëren
-  originalSlides.forEach(slide => {
-    const clone = slide.cloneNode(true);
-    clone.classList.add("clone");
-    clone.setAttribute("aria-hidden", "true");
-    track.appendChild(clone);
-  });
+      // Hele serie achteraan kopiëren
+      originalSlides.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        clone.classList.add("clone");
+        clone.setAttribute("aria-hidden", "true");
+        track.appendChild(clone);
+      });
 
-  // Hele serie achteraan/vooraan kopiëren
-  originalSlides
-    .slice()
-    .reverse()
-    .forEach(slide => {
-      const clone = slide.cloneNode(true);
-      clone.classList.add("clone");
-      clone.setAttribute("aria-hidden", "true");
-      track.insertBefore(clone, track.firstChild);
+      // Hele serie vooraan kopiëren
+      originalSlides
+        .slice()
+        .reverse()
+        .forEach(slide => {
+          const clone = slide.cloneNode(true);
+          clone.classList.add("clone");
+          clone.setAttribute("aria-hidden", "true");
+          track.insertBefore(clone, track.firstChild);
+        });
+
+      /*
+        De structuur is nu:
+
+        kopie 1 t/m 18
+        originele 1 t/m 18
+        kopie 1 t/m 18
+
+        We beginnen bij de eerste ORIGINELE foto.
+      */
+
+      currentIndex = totalSlides;
+
+      function getSlides() {
+        return Array.from(track.querySelectorAll(".carousel-slide"));
+      }
+
+      function moveToSlide(index, animate = true) {
+        const slides = getSlides();
+
+        if (!slides[index]) return;
+
+        track.style.transition = animate
+          ? "transform 0.55s ease"
+          : "none";
+
+        const position = slides[index].offsetLeft;
+
+        track.style.transform = `translateX(-${position}px)`;
+      }
+
+      /* =========================
+         VOLGENDE FOTO
+         ========================= */
+
+      function nextSlide() {
+        if (isAnimating) return;
+
+        isAnimating = true;
+        currentIndex++;
+
+        moveToSlide(currentIndex, true);
+      }
+
+      /* =========================
+         VORIGE FOTO
+         ========================= */
+
+      function previousSlide() {
+        if (isAnimating) return;
+
+        isAnimating = true;
+        currentIndex--;
+
+        moveToSlide(currentIndex, true);
+      }
+
+      /* =========================
+         NA SCHUIFANIMATIE
+         ========================= */
+
+      track.addEventListener("transitionend", function () {
+
+        /*
+          We zitten inmiddels in de kopie ná
+          de originele foto's.
+
+          Spring onzichtbaar terug naar
+          dezelfde foto in het middelste blok.
+        */
+        if (currentIndex >= totalSlides * 2) {
+          currentIndex = currentIndex - totalSlides;
+          moveToSlide(currentIndex, false);
+        }
+
+        /*
+          Zelfde truc als we helemaal naar
+          links gaan.
+        */
+        if (currentIndex < totalSlides) {
+          currentIndex = currentIndex + totalSlides;
+          moveToSlide(currentIndex, false);
+        }
+
+        isAnimating = false;
+      });
+
+      /* =========================
+         AUTOMATISCH DOORSCHUIVEN
+         ========================= */
+
+      function startAutoPlay() {
+        clearInterval(autoPlay);
+
+        autoPlay = setInterval(function () {
+          nextSlide();
+        }, 4000);
+      }
+
+      /* =========================
+         PIJLTJES
+         ========================= */
+
+      nextButton.addEventListener("click", function () {
+        nextSlide();
+        startAutoPlay();
+      });
+
+      prevButton.addEventListener("click", function () {
+        previousSlide();
+        startAutoPlay();
+      });
+
+      /* =========================
+         RESIZE
+         ========================= */
+
+      window.addEventListener("resize", function () {
+        moveToSlide(currentIndex, false);
+      });
+
+      /* =========================
+         START
+         ========================= */
+
+      window.addEventListener("load", function () {
+        moveToSlide(currentIndex, false);
+        startAutoPlay();
+      });
+
     });
-
-
-  /*
-    De structuur is nu:
-
-    kopie 1 t/m 13
-    originele 1 t/m 13
-    kopie 1 t/m 13
-
-    We beginnen bij de eerste ORIGINELE foto.
-  */
-
-  currentIndex = totalSlides;
-
-
-  function getSlides() {
-    return Array.from(track.querySelectorAll(".carousel-slide"));
-  }
-
-
-  function moveToSlide(index, animate = true) {
-
-    const slides = getSlides();
-
-    if (!slides[index]) return;
-
-    track.style.transition = animate
-      ? "transform 0.55s ease"
-      : "none";
-
-    const position = slides[index].offsetLeft;
-
-    track.style.transform = `translateX(-${position}px)`;
-  }
-
-
-  /* =========================
-     VOLGENDE FOTO
-     ========================= */
-
-  function nextSlide() {
-
-    if (isAnimating) return;
-
-    isAnimating = true;
-    currentIndex++;
-
-    moveToSlide(currentIndex, true);
-  }
-
-
-  /* =========================
-     VORIGE FOTO
-     ========================= */
-
-  function previousSlide() {
-
-    if (isAnimating) return;
-
-    isAnimating = true;
-    currentIndex--;
-
-    moveToSlide(currentIndex, true);
-  }
-
-
-  /* =========================
-     NA SCHUIFANIMATIE
-     ========================= */
-
-  track.addEventListener("transitionend", function () {
-
-    /*
-      We zitten inmiddels in de kopie ná
-      de originele foto's.
-
-      Spring onzichtbaar terug naar
-      dezelfde foto in het middelste blok.
-    */
-    if (currentIndex >= totalSlides * 2) {
-
-      currentIndex = currentIndex - totalSlides;
-      moveToSlide(currentIndex, false);
-
-    }
-
-    /*
-      Zelfde truc als we helemaal naar
-      links gaan.
-    */
-    if (currentIndex < totalSlides) {
-
-      currentIndex = currentIndex + totalSlides;
-      moveToSlide(currentIndex, false);
-
-    }
-
-    isAnimating = false;
-  });
-
-
-  /* =========================
-     AUTOMATISCH DOORSCHUIVEN
-     ========================= */
-
-  function startAutoPlay() {
-
-    clearInterval(autoPlay);
-
-    autoPlay = setInterval(function () {
-      nextSlide();
-    }, 4000);
-
-  }
-
-
-  /* =========================
-     PIJLTJES
-     ========================= */
-
-  nextButton.addEventListener("click", function () {
-    nextSlide();
-    startAutoPlay();
-  });
-
-
-  prevButton.addEventListener("click", function () {
-    previousSlide();
-    startAutoPlay();
-  });
-
-
-  /* =========================
-     RESIZE
-     ========================= */
-
-  window.addEventListener("resize", function () {
-    moveToSlide(currentIndex, false);
-  });
-
-
-  /* =========================
-     START
-     ========================= */
-
-  window.addEventListener("load", function () {
-
-    moveToSlide(currentIndex, false);
-    startAutoPlay();
-
-  });
-
-});
-</script>
-
+  </script>
 </body>
 </html>
